@@ -86,13 +86,21 @@
 
   // ── Track Click ──────────────────────────────────────────────
   function trackClick(event) {
+    const containerWidth = 1280;
+    const pageX = event.pageX;
+    const pageY = event.pageY;
+
+    // Calculate left offset of the centered 1280px page content layout
+    const docWidth = document.documentElement.clientWidth || window.innerWidth;
+    const leftOffset = docWidth > containerWidth ? (docWidth - containerWidth) / 2 : 0;
+
     send({
       session_id: SESSION_ID,
       type: "click",
       pageUrl: window.location.pathname + window.location.search,
       timestamp: new Date().toISOString(),
-      x: Math.round(event.clientX),
-      y: Math.round(event.clientY),
+      x: Math.max(0, Math.min(containerWidth, Math.round(pageX - leftOffset))),
+      y: Math.round(pageY),
     });
   }
 
