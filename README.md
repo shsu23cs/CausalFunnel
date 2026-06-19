@@ -2,6 +2,8 @@
 
 A full-stack application that tracks user interactions on a webpage and displays them in a real-time analytics dashboard.
 
+📺 **[Watch the YouTube Demo Video](https://youtu.be/HulgscnPPwQ)**
+
 ---
 
 ## Tech Stack
